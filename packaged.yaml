@@ -1,10 +1,10 @@
-AWSTemplateFormatVersion: "2010-09-09"
+AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: "sam-app
+Description: 'sam-app
 
   Sample SAM Template for sam-app
 
-  "
+  '
 Globals:
   Function:
     Timeout: 3
@@ -16,7 +16,7 @@ Resources:
       Handler: app.lambdaHandler
       Runtime: nodejs22.x
       Architectures:
-        - x86_64
+      - x86_64
       Events:
         HelloWorld:
           Type: Api
@@ -34,12 +34,11 @@ Outputs:
     Description: Hello World Lambda Function ARN
     Value:
       Fn::GetAtt:
-        - HelloWorldFunction
-        - Arn
+      - HelloWorldFunction
+      - Arn
   HelloWorldFunctionIamRole:
     Description: Implicit IAM Role created for Hello World function
     Value:
       Fn::GetAtt:
-        - HelloWorldFunctionRole
-        - Arn
-#s
+      - HelloWorldFunctionRole
+      - Arn
