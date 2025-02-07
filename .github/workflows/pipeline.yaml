@@ -3,11 +3,11 @@ name: Pipeline
 on:
   push:
     branches:
-      - 'main'
-      - 'feature**'
+      - "main"
+      - "feature**"
   delete:
     branches:
-      - 'feature**'
+      - "feature**"
 
 env:
   SAM_TEMPLATE: template.yaml
@@ -189,6 +189,8 @@ jobs:
             --s3-bucket ${TESTING_ARTIFACTS_BUCKET} \
             --no-fail-on-empty-changeset \
             --role-arn ${TESTING_CLOUDFORMATION_EXECUTION_ROLE}
+            --no-confirm-changeset \
+            --capabilities CAPABILITY_IAM
 
   integration-test:
     if: github.ref == 'refs/heads/main'
